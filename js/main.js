@@ -8,5 +8,5 @@ function visibilityNone() {
   elLauncher.style.visibility = "hidden";
 }
 
-setTimeout(closeLauncher, 1500);
-setTimeout(visibilityNone, 2300);
+  setTimeout(closeLauncher, 1500);
+  setTimeout(visibilityNone, 2300);

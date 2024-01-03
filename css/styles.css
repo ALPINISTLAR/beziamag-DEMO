@@ -47,10 +47,11 @@ body
 
 /* HEADER */
 .header-hero-wrapper {
-  background-image: url(../img/header-bg.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  background-color: var(--accent-color);
+  background-image: url(../img/header-bg.png);
 }
 .header {
   padding-top: 50px;
