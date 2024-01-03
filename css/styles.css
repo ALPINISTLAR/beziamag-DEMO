@@ -1,4 +1,10 @@
 /* ** GLOBAL STYLES ** */
+:root{
+  --accent-color: #281f9b;
+  --text-color: #141414;
+  --white: #fff;
+}
+
 
 body
 {
@@ -9,8 +15,8 @@ body
   margin: 0;
   font-size: 16px;
   line-height: 1.5;
-  font-family: Arial, sans-serif;
-  letter-spacing: 0.5px;
+  font-family: "Poppins", "Montserrat", Arial, sans-serif;
+  letter-spacing: 0;
   background-color: #fff;
   color: #222;
 }
@@ -24,7 +30,109 @@ body
   padding-right: 25px;
   margin-right: auto;
   margin-left: auto;
-  border: 3px solid red;
+  /* border: 3px solid red; */
+}
+
+/* HEADER */
+.header-hero-wrapper {
+  background-image: url(../img/header-bg.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.header {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.header__container {
+  display: flex;
+  align-items: center;
+}
+.header__logo {
+  margin-right: 24px;
+}
+.logo {
+  display: flex;
+}
+.logo:hover{
+  opacity: 0.8;
+}
+.logo__img {
+  display: flex;
+  width: 160px;
+  height: 40px;
+  object-fit: contain;
+}
+.sitenav {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+.sitenav__list {
+  display: flex;
+  align-items: center;
+  margin-right: 100px;
+}
+.sitenav__item:not(:last-child) {
+  margin-right: 24px;
+}
+.sitenav__link {
+  font-size: 18px;
+  color: var(--white);
+  text-transform: capitalize;
+  font-weight: 500;
+  transition: 0.4s ease;
+}
+.sitenav__link:hover{
+  color: var(--accent-color);
+}
+.sitenav__link:active{
+  opacity: 0.6;
+}
+
+/* BUTTON */
+.btn{
+  display: inline-block;
+  font-size: 18px;
+  text-transform: capitalize;
+  font-weight: 500;
+  border: 2px solid transparent;
+  padding: 6px 12px;
+  color: var(--white);
+  background-color: var(--accent-color);
+  transition: 0.4s ease;
+}
+.btn:hover{
+  border-color: var(--accent-color);
+  background-color: transparent;
+  color: var(--accent-color);
+}
+.btn:active{
+  opacity: 0.6;
+}
+
+/* HERO */
+.hero {
+  padding-top: 130px;
+  padding-bottom: 130px;
+}
+.hero__content {
+  max-width: 445px;
+  width: 100%;
+}
+.hero__title {
+  font-size: 34px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: rgb(255, 255, 255, 0.7);
+  margin-bottom: 32px;
+}
+.hero__title span{
+  color: var(--accent-color);
+}
+.hero__text {
+  color: rgb(255, 255, 255, 0.7);
+  margin-bottom: 24px;
 }
 
 /* ** MAIN CONTENT ** */
