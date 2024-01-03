@@ -19,8 +19,20 @@ body
   letter-spacing: 0;
   background-color: #fff;
   color: #222;
+  position: relative;
 }
 
+.launcher{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+.launcher--close{
+  opacity: 0;
+}
 /* *** CONTAINER *** */
 .container
 {
