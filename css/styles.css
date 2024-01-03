@@ -74,6 +74,11 @@ body
   width: 160px;
   height: 40px;
   object-fit: contain;
+  color: var(--white);
+  transition: 0.4s ease;
+}
+.logo__img:hover{
+  color: var(--accent-color);
 }
 .sitenav {
   display: flex;
