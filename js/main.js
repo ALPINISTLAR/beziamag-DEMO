@@ -72,7 +72,7 @@ document.querySelector('.btn--right').addEventListener('mousedown', function() {
   startMoving('right');
 });
 
-
+document.addEventListener('mouseup', stopMoving);
 
 
 
