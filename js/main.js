@@ -72,4 +72,21 @@ document.querySelector('.btn--right').addEventListener('mousedown', function() {
   startMoving('right');
 });
 
-document.addEventListener('mouseup', stopMoving);
+
+
+
+
+const elModal = document.querySelector('.modal');
+const elModalClose = elModal.querySelector('.js-modal-close');
+const elGetStarted = document.querySelector('.sitenav__getStarted');
+
+elGetStarted.addEventListener('click', function () {
+  elModal.classList.add('modal-open');
+})
+
+
+if (elModalClose) {
+  elModalClose.addEventListener('click', function () {
+    elModal.classList.remove('modal-open');
+  });
+};
