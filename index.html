@@ -15,9 +15,13 @@
   <!-- =============================== -->
   <!-- =====       STYLES        ===== -->
   <!-- =============================== -->
+
+  <!-- MDB -->
+  <link rel="stylesheet" href="css/mdb.min.css" />
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/styles.css">
+
 </head>
 <body>
   <!-- <img class="launcher" src="img/launcher.png"> -->
@@ -37,8 +41,15 @@
           </ul>
 
 
-          <button class="sitenav__getStarted btn" type="button">get started</button>
-          <a class="sitenav__sign btn" href="#account">sign in</a>
+          <!-- Button trigger SIGN UP modal -->
+          <button type="button" class="btn" data-mdb-toggle="modal" data-mdb-target="#staticBackdrop2">
+            get started
+          </button>
+
+          <!-- Button trigger SIGN IN modal -->
+          <button type="button" class="sitenav__sign btn" data-mdb-toggle="modal" data-mdb-target="#staticBackdrop1">
+            sign in
+          </button>
         </nav>
       </div>
     </header>
@@ -277,21 +288,81 @@
 
 
 
-       <!-- ==== MODALS ==== -->
-       <section class="modal" id="notifications-modal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <h2 class="visually-hidden">Уведомления</h2>
-            <button class="modal-close js-modal-close" type="button" aria-label="Закрыть модаль">
-              <svg class="modal-close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><g clip-path="url(#a)" opacity=".5"><path fill="currentcolor" d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59 7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12 5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath></defs></svg>
-            </button>
-            <p class="modal-lead">Ma'lumotlar to'ldirilmoqda.....
-            </p>
-            <div class="modal-actions">
+      <!-- ==== MODALS ==== -->
+      <!-- /// modal SIGN UP \\\ -->
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog d-flex justify-content-center">
+          <div class="modal-content w-75">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel2">Sign up</h5>
+              <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+              <form>
+                <!-- Name input -->
+                <div class="form-outline mb-4">
+                  <input type="text" id="name2" class="form-control" />
+                  <label class="form-label" for="name2">Name</label>
+                </div>
+
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <input type="email" id="email2" class="form-control" />
+                  <label class="form-label" for="email2">Email address</label>
+                </div>
+
+                <!-- password input -->
+                <div class="form-outline mb-4">
+                  <input type="password" id="password2" class="form-control" />
+                  <label class="form-label" for="password2">Password</label>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+              </form>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+      <!-- Modal -->
+
+      <!-- /// modal SIGN IN \\\ -->
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog d-flex justify-content-center">
+          <div class="modal-content w-75">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel1">Sign in</h5>
+              <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+              <form>
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <input type="email" id="email1" class="form-control" />
+                  <label class="form-label" for="email1">Email address</label>
+                </div>
+
+                <!-- password input -->
+                <div class="form-outline mb-4">
+                  <input type="password" id="password1" class="form-control" />
+                  <label class="form-label" for="password1">Password</label>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+
+
+      <!-- MDB -->
+      <script type="text/javascript" src="js/mdb.min.js"></script>
+      <!-- Custom scripts -->
       <script src="js/main.js"></script>
     </body>
     </html>
