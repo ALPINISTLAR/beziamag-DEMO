@@ -31,61 +31,62 @@ elsTabLink.forEach(function (elTabLink) {
 
 // =================
 
-document.querySelector('.btn--right').addEventListener('click', function() {
-  const productList = document.querySelector('.products__list');
-  // Boshqa talablar bo'yicha shu erda scroll qilishingiz mumkin
-  productList.scrollLeft += 100; // Masalan, har safar 100 piksel o'nga o'chadi
-});
-
-document.querySelector('.btn--left').addEventListener('click', function() {
-  const productList = document.querySelector('.products__list');
-  // Boshqa talablar bo'yicha shu erda scroll qilishingiz mumkin
-  productList.scrollLeft -= 100; // Masalan, har safar 100 piksel o'nga o'chadi
-});
-
-
-let intervalId;
-
-function startMoving(direction) {
-  const productList = document.querySelector('.products__list');
-  const speed = 2; // Harakatlanish tezligi (px)
-
-  intervalId = setInterval(function() {
-    if (direction === 'right') {
-      productList.scrollLeft += speed;
-    } else if (direction === 'left') {
-      productList.scrollLeft -= speed;
-    }
-  }, 10); // 10 millisekundda bir harakatlanish
-}
-
-function stopMoving() {
-  clearInterval(intervalId);
-}
-
-document.querySelector('.btn--left').addEventListener('mousedown', function() {
-  startMoving('left');
-});
-
-document.querySelector('.btn--right').addEventListener('mousedown', function() {
-  startMoving('right');
-});
-
-document.addEventListener('mouseup', stopMoving);
-
-
-
-
 // Sticky header
 window.onscroll = function() {stickyHeader()};
 
 var header = document.querySelector("header");
 var sticky = header.offsetTop;
+let hero = document.querySelector('.hero')
 
 function stickyHeader() {
     if (window.pageYOffset > sticky) {
         header.classList.add("sticky");
+        hero.classList.add('hero-pt')
     } else {
         header.classList.remove("sticky");
+        hero.classList.remove('hero-pt')
     }
 }
+
+
+// == Product cards
+function productCard(product) {
+  return `<li class="products__list-item product-card">
+    <img class="product-card__img" src="${product.image}" alt="${product.title}">
+    <div class="product-card__info">
+      <h3 class="product-card__title">${product.title}</h3>
+      <span class="product-card__price">$. ${product.price}</span>
+    </div>
+  </li>`;
+}
+
+async function appendCard(count) {
+  const elProductList = document.querySelector('.products__list');
+  let cardsHtml = '';
+
+  try {
+    // API dan ma'lumotlarni olish
+    const res = await fetch("https://fakestoreapi.com/products");
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(`Ma'lumotlarni olishda xato: ${data.message}`);
+    }
+
+    // Faqat 8 ta ma'lumotni olish
+    const limitedData = data.slice(10, 18);
+
+    // Har bir mahsulot uchun cardHtml ni qo'shish
+    for (let i = 0; i < count; i++) {
+      cardsHtml += productCard(limitedData[i]);
+    }
+
+    // ProductList ga cardHtml ni qo'shish
+    elProductList.innerHTML += cardsHtml;
+  } catch (error) {
+    console.error("Ma'lumotlarni olishda xatolik:", error);
+  }
+}
+
+// Misol uchun 8 ta productCard joylash
+appendCard(8);
