@@ -10,24 +10,32 @@ function DeactivateTabItems () {
   });
 }
 
-function DeactivateTabpanels () {
-  elsTabpanels.forEach(function (elTabpanel) {
-    elTabpanel.classList.remove('tabpanels__item--active');
-  });
-}
-
-
 elsTabLink.forEach(function (elTabLink) {
   elTabLink.addEventListener('click', function (evt) {
     evt.preventDefault();
     DeactivateTabItems();
     elTabLink.parentElement.classList.add('tabs__item--active');
-    DeactivateTabpanels();
-    // const elTargetPanel = document.querySelector(`#${elTabLink.href.split('#')[1]}`);
-    const elTargetPanel = document.querySelector(elTabLink.dataset.tabTarget);
-    elTargetPanel.classList.add('tabpanels__item--active');
   });
 });
+
+
+function showTab(tabNumber) {
+  // Barcha panellar yashiriladi
+  const tabPanels = document.querySelectorAll('.tab-panel');
+  tabPanels.forEach(panel => {
+    panel.style.display = 'none';
+    panel.style.opacity = 0;
+  });
+
+  // Tanlangan tabni ko'rsatish
+  const selectedTab = document.getElementById(`tab${tabNumber}`);
+  selectedTab.style.display = 'block';
+
+  // Tranzitsiyalarni boshlash
+  setTimeout(() => {
+    selectedTab.style.opacity = 1;
+  }, 10);
+}
 
 // =================
 

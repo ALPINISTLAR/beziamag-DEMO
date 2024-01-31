@@ -327,12 +327,16 @@ body
   padding-top: 75px;
   padding-bottom: 90px;
 }
-.tabpanels__item {
+
+.tab-panel {
   display: none;
 }
-.tabpanels__item--active{
-  display: block;
+
+/* Tranzitsiyalarni sozlash */
+.tab-panel {
+  transition: opacity 0.3s ease-in-out;
 }
+
 .feature-tab-panel {
   display: flex;
   justify-content: center;
