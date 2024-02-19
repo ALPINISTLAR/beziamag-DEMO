@@ -89,10 +89,10 @@ function stickyHeader() {
 // == Product cards
 function productCard(product) {
   return `<li class="products__list-item product-card">
-  <a class=""> <img class="product-card__img" src="${product.thumbnail}" alt="${product.title}">
+  <a> <img class="product-card__img" src="${product.thumbnail}" alt="${product.title}">
   <div class="product-card__info">
-  <h3 class="product-card__title">${product.title}</h3>
-  <span class="product-card__price">$${product.price}</span>
+    <h3 class="product-card__title">${product.title}</h3>
+    <span class="product-card__price">$${product.price}</span>
   </div></a>
   </li>`;
 }
