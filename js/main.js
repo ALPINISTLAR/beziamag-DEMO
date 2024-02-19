@@ -48,9 +48,13 @@ const hero = document.querySelector('.hero');
 const contactPage = document.querySelector('.contact-page');
 const aboutPage = document.querySelector('.about-page');
 const productsInner = document.querySelector('.products__inner');
+const productDetail = document.querySelector('.product-details-container');
 
 
 function stickyHeader() {
+  if (productDetail) {
+    header.style.position = 'static';
+  }
   if (window.pageYOffset > sticky) {
     header.classList.add("sticky");
     if (hero) {
@@ -85,10 +89,10 @@ function stickyHeader() {
 // == Product cards
 function productCard(product) {
   return `<li class="products__list-item product-card">
-  <a> <img class="product-card__img" src="${product.thumbnail}" alt="${product.title}">
+  <a class=""> <img class="product-card__img" src="${product.thumbnail}" alt="${product.title}">
   <div class="product-card__info">
-    <h3 class="product-card__title">${product.title}</h3>
-    <span class="product-card__price">$${product.price}</span>
+  <h3 class="product-card__title">${product.title}</h3>
+  <span class="product-card__price">$${product.price}</span>
   </div></a>
   </li>`;
 }
@@ -122,5 +126,60 @@ async function appendCard(skip, count) {
   }
 }
 
-// appendCard funksiyasini chaqirish
-// appendCard(8);
+
+
+
+// SHOPPING CART ACTIONS:  Product quantity button;
+const elProductQuantityIncreaseButton = document.querySelector('.js-product-quantity-increase-button');
+const elProductQuantityDecreaseButton = document.querySelector('.js-product-quantity-decrease-button');
+const elProductQuantity = document.querySelector('.product-info__quantity');
+
+
+if (elProductQuantityIncreaseButton) {
+  elProductQuantityIncreaseButton.addEventListener('click', function () {
+    elProductQuantity.textContent = parseInt(elProductQuantity.textContent, 10) + 1;
+  });
+};
+
+if (elProductQuantityDecreaseButton) {
+  elProductQuantityDecreaseButton.addEventListener('click', function () {
+    const quantity = parseInt(elProductQuantity.textContent, 10);
+
+    if (quantity > 0) {
+      elProductQuantity.textContent = quantity - 1;
+    }
+  });
+};
+
+// SEARCH FORM
+const dropDownHeader = document.querySelector(".dropdown-header");
+const dropDownBodyOptions = document.querySelectorAll(".dropdown-body li");
+
+
+// Control Drop Down Menu
+function controlDropDown() {
+  const dropDownWrapper = document.querySelector(".dropdown-wrapper");
+
+  if (dropDownWrapper.classList.contains("open")) {
+    dropDownWrapper.classList.remove("open");
+  }
+  else {
+    dropDownWrapper.classList.add("open");
+  }
+};
+
+if (dropDownHeader) {
+  dropDownHeader.addEventListener("click", controlDropDown);
+}
+
+
+dropDownBodyOptions.forEach((option) => {
+  option.addEventListener("click", () => {
+    let optionValue = option.dataset.catalog;
+    optionValue == "all"
+
+    controlDropDown();
+
+    dropDownHeader.querySelector("span").textContent = optionValue;
+  });
+});
